@@ -1,0 +1,10 @@
+SELECT MEAN(value)
+FROM "memory"
+WHERE "metric" = '@metric'
+AND "context" = '@context'
+AND "branch" = '@branch'
+AND "device" = '@device'
+AND "memory" = '@memory'
+AND "test" = '@test'
+AND @timeFilter
+GROUP BY "revisionId" fill(none)

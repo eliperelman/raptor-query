@@ -1,0 +1,8 @@
+SELECT SUM(value) / SUM(failures)
+FROM "mtbf"
+WHERE "node" = '@node'
+AND "branch" = '@branch'
+AND "device" = '@device'
+AND "memory" = '@memory'
+AND @timeFilter
+GROUP BY time(1s) fill(none)

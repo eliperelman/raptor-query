@@ -1,0 +1,17 @@
+{
+  "name": "raptor-query",
+  "version": "1.0.0",
+  "description": "InfluxDB query generator for @mozilla/raptor",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [
+    "raptor",
+    "mozilla",
+    "performance",
+    "regression",
+    "influx",
+    "query"
+  ],
+  "author": "Eli Perelman",
+  "license": "MIT"
+}
