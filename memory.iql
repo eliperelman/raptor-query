@@ -1,4 +1,4 @@
-SELECT MEAN(value)
+SELECT MEAN(value) as value
 FROM "memory"
 WHERE "metric" = '@metric'
 AND "context" = '@context'

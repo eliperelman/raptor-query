@@ -1,4 +1,4 @@
-SELECT SUM(value) / SUM(failures)
+SELECT SUM(value) / SUM(failures) as value
 FROM "mtbf"
 WHERE "node" = '@node'
 AND "branch" = '@branch'
