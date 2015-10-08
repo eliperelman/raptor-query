@@ -1,4 +1,4 @@
-SELECT PERCENTILE(value, 95) as value
+SELECT MEAN(value, 95) as value
 FROM "measure"
 WHERE "metric" = '@metric'
 AND "context" = '@context'
