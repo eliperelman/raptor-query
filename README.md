@@ -22,7 +22,7 @@ query({
   timeFilter: 'time > now() - 7d'
 });
 
-// SELECT PERCENTILE(value, 95) FROM "measure" WHERE "metric" = 'visuallyLoaded' AND "context" = 'clock.gaiamobile.org' AND "branch" = 'master' AND "device" = 'flame-kk' AND "memory" = '319' AND "test" = 'cold-launch' AND time > now() - 7d GROUP BY "revisionId" fill(none)
+// SELECT MEAN(value) as value FROM "measure" WHERE "metric" = 'visuallyLoaded' AND "context" = 'clock.gaiamobile.org' AND "branch" = 'master' AND "device" = 'flame-kk' AND "memory" = '319' AND "test" = 'cold-launch' AND time > now() - 7d GROUP BY "revisionId" fill(none)
 ```
 
 ### Measurements
@@ -31,8 +31,14 @@ Common options:
 
 - `branch`: git branch, e.g. `master`, `v2.5`
 - `device`: physically-tested device, e.g. `flame-kk`, `aries`
-- `memory`: configured device memory in MB, e.g. `319`, `2048`
-- `timeFilter`: InfluxDB-compatible time clause, e.g. `time > now() - 7d`, `time = 2015-10-01` 
+- `memory`: configured device memory in MB, e.g. `319`, `512`, `2048`
+- `timeFilter`: InfluxDB-compatible time clause, e.g. `time > now() - 7d`, `time = 2015-10-01`
+- `database`: InfluxDB database name
+- `host`: InfluxDB database hostname
+- `port`: InfluxDB database port
+- `username`: InfluxDB database username
+- `password`: InfluxDB database password
+- `protocol`: InfluxDB database protocol
 
 ---
 

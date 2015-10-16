@@ -48,20 +48,40 @@ var queries = {
   }
 };
 
+/**
+ * Remove extra whitespace and newlines from a query
+ * @param {String} queryString
+ * @returns {String}
+ */
 var clean = R.pipe(R.replace(/\n[ ]+/g, ' '), R.trim);
+
+/**
+ * Fetch the query string for a given measurement using options to fill in query values
+ * @param {String} measurement InfluxDB measurement
+ * @param {Object} options query values
+ */
 var getRawQuery = (measurement, options) => R.call(R.prop(measurement, queries), options);
+
+/**
+ * Fetch the query string for a given set of options
+ * @param {Object} options
+ * @returns {String}
+ */
 var getQuery = R.converge(R.pipe(getRawQuery, clean), [R.prop('measurement'), R.identity]);
 
+/**
+ * Execute a query against an InfluxDB database
+ * 1. Create a database client
+ * 2. Fetch the query string
+ * 3. Execute the query against the database
+ * @param options
+ * @returns {Promise}
+ */
 module.exports = (options) => {
   return Promise
     .all([
       database(options),
       getQuery(options)
     ])
-    .then(values => {
-      var client = values[0];
-      var query = values[1];
-
-      return client.query(query);
-    });
+    .then(R.apply((client, query) => client.query(query)));
 };
