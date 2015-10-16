@@ -1,8 +1,0 @@
-SELECT value
-FROM "power"
-WHERE "test" = '@test'
-AND "context" = '@context'
-AND "branch" = '@branch'
-AND "device" = '@device'
-AND "memory" = '@memory'
-AND @timeFilter

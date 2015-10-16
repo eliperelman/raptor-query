@@ -1,6 +1,6 @@
 {
   "name": "raptor-query",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "InfluxDB query generator for @mozilla/raptor",
   "main": "index.js",
   "scripts": {},
@@ -13,5 +13,9 @@
     "query"
   ],
   "author": "Eli Perelman",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "influent": "0.4.2",
+    "ramda": "0.18.0"
+  }
 }
