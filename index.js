@@ -12,7 +12,7 @@ var queries = {
       AND "memory" = '${query.memory}'
       AND "test" = '${query.test}'
       AND ${query.timeFilter}
-      GROUP BY "revisionId" fill(none)`;
+      GROUP BY * fill(none)`;
   },
   memory: (query) => {
     return `SELECT MEAN(value) as value
@@ -24,7 +24,7 @@ var queries = {
       AND "memory" = '${query.memory}'
       AND "test" = '${query.test}'
       AND ${query.timeFilter}
-      GROUP BY "revisionId" fill(none)`;
+      GROUP BY * fill(none)`;
   },
   mtbf: (query) => {
     return `SELECT SUM(value) / SUM(failures) as value
