@@ -9,7 +9,7 @@ Simple API to generate an InfluxQB query for Raptor data
 ### Usage
 
 ```js
-var query = require('raptor-query');
+var query = require('raptor-query/lib');
 
 query({
   measurement: 'measure',
